@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab 2</title>
+
+         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+           crossorigin=""/>
+
+         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+           crossorigin=""></script>
+
+    </head>
+
+    <body>
+        <div id="map" style="height: 800px"></div>
+
+        <script type="text/javascript">
+
+          var map = L.map('map', {
+              center: [25.7037819,58.5117238],
+              zoom: 4
+          });
+
+          L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012',
+               maxZoom: 4,
+               minZoom: 4
+            }).addTo(map);
+
+          var pakistanIcon = L.icon({
+              iconUrl: 'pakistan.png', // url that links to the icon image file
+              iconSize:     [38, 38], // size of the icon image in pixels
+              iconAnchor:   [19, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+              popupAnchor:  [0, -10] // point from which the popup should open, relative to the iconAnchor
+          });
+          var graduateIcon = L.icon({
+              iconUrl: 'graduate.png', // url that links to the icon image file
+              iconSize:     [38, 38], // size of the icon image in pixels
+              iconAnchor:   [19, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+              popupAnchor:  [0, -10] // point from which the popup should open, relative to the iconAnchor
+          });
+		  var kaabaIcon = L.icon({
+              iconUrl: 'kaaba.png', // url that links to the icon image file
+              iconSize:     [38, 38], // size of the icon image in pixels
+              iconAnchor:   [19, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+              popupAnchor:  [0, -10] // point from which the popup should open, relative to the iconAnchor
+          });
+		   var capitalIcon = L.icon({
+              iconUrl: 'capital.png', // url that links to the icon image file
+              iconSize:     [38, 38], // size of the icon image in pixels
+              iconAnchor:   [19, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+              popupAnchor:  [0, -10] // point from which the popup should open, relative to the iconAnchor
+          });
+          var marker1 = L.marker([30.812223,69.319738], {icon: pakistanIcon}).addTo(map);
+          var marker2 = L.marker([24.940482,67.12796], {icon: graduateIcon}).addTo(map);
+		  var marker3 = L.marker([21.437692,39.817687], {icon: kaabaIcon}).addTo(map);
+		  var marker4 = L.marker([33.711604,73.035619], {icon: capitalIcon}).addTo(map);
+
+          var pic1 = '<img src="https://www.fairobserver.com/wp-content/uploads/2024/01/Pakistan-1-1536x813.jpg" alt="Mountain" width="200">';
+          var pic2 = '<img src="https://www.bolnews.com/wp-content/uploads/2020/11/KU.jpg" alt="University" style="width:200px">';
+		  var pic3 = '<img src="https://welcomesaudi.com/uploads/0000/1/2021/07/23/76-al-masjid-al-haram-makkah-province.jpg" alt="Masjid" width="200">';
+          var pic4 = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Faisal_Mosque%2C_Islamabad_III.jpg/800px-Faisal_Mosque%2C_Islamabad_III.jpg" alt="Islamabad" style="width:150px">';
+		  
+          marker1.bindPopup('<p style="color:green; font-weight:bold"> PAKISTAN <br> My Home Country </p>' + pic1);
+          marker2.bindPopup('<p style="color:black; font-weight:bold"> Graduated from UOK </p>' + pic2);
+		  marker3.bindPopup('<p style="color:black; font-weight:bold"> SaudiaArabia (MAKKAH)<br> Muslims Holy Place </p>' + pic3);
+		  marker4.bindPopup('<p style="color:blue; font-weight:bold"> Islamabad <br> Capital city of Pakistan </p>' + pic4);
+
+        </script>
+   </body>
+</html>
